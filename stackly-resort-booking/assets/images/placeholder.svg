@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Stackly image unavailable">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A1F3F"/>
+      <stop offset="55%" stop-color="#19A7CE"/>
+      <stop offset="100%" stop-color="#14D9B9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g)"/>
+  <g fill="#ffffff" opacity="0.92" transform="translate(600 400)">
+    <path d="M-70 60 L-70 -10 L0 -70 L70 -10 L70 60 Z" fill="#ffffff" opacity="0.95"/>
+    <rect x="-30" y="10" width="26" height="50" rx="4" fill="#19A7CE"/>
+    <rect x="4" y="10" width="26" height="50" rx="4" fill="#19A7CE"/>
+    <circle cx="0" cy="-20" r="10" fill="#FC4E67"/>
+  </g>
+  <text x="600" y="560" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="42" font-weight="700" fill="#ffffff">Stackly</text>
+  <text x="600" y="606" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" fill="#e2e8f0">Image unavailable</text>
+</svg>

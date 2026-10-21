@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorite Hotels — Stackly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body class="dashboard" data-page="dashboard">
+
+  <div class="dash-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <div class="dash-main">
+      <header class="dash-header" id="dash-header"></header>
+
+      <div class="panel">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+          <h3><i class="fa-solid fa-heart" style="color:var(--color-accent)"></i> Your Saved Hotels</h3>
+          <button type="button" id="add-favorite-btn" class="btn btn-outline btn-sm"><i class="fa-solid fa-plus"></i> Add More Favorites</button>
+        </div>
+        <p class="muted">Hotels you save here are stored in your browser and available across your dashboard.</p>
+      </div>
+
+      <div class="grid cards-3 stagger" id="fav-grid"></div>
+    </div>
+  </div>
+
+  <!-- ADD FAVORITE HOTELS -->
+  <div class="modal" id="add-favorite-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="icon-btn" data-close-modal="add-favorite-modal" aria-label="Close" style="align-self:flex-end"><i class="fa-solid fa-xmark"></i></button>
+      <h2>Add a Favorite Hotel</h2>
+      <p class="muted">Choose a hotel to save it here without leaving this page.</p>
+      <div class="grid cards-2" id="favorite-picker-grid"></div>
+    </div>
+  </div>
+
+  <!-- LOGOUT MODAL -->
+  <div class="modal" id="logout-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-box modal-sm">
+      <div class="modal-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+      <h3 class="modal-title">Are you sure you want to log out?</h3>
+      <p class="modal-text muted">You will need to log in again to access your dashboard.</p>
+      <div class="modal-actions">
+        <button class="btn btn-outline" data-close-modal="logout-modal">Cancel</button>
+        <button class="btn btn-danger" id="logout-confirm">Confirm Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/validation.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/booking.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script src="../assets/js/dashboard.js?v=20261016logo"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal, .stagger').forEach(el => io.observe(el));
+    });
+  </script>
+</body>
+</html>

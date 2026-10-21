@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking & Reservations — Stackly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body class="dashboard" data-page="dashboard">
+
+  <div class="dash-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <div class="dash-main">
+      <header class="dash-header" id="dash-header"></header>
+
+      <div class="panel" style="background:linear-gradient(135deg, rgba(25,167,206,.1), rgba(20,217,185,.08));border:1px dashed var(--color-secondary)">
+        <p style="color:var(--color-primary)"><i class="fa-solid fa-circle-info" style="color:var(--color-secondary)"></i> <strong>Frontend Demo:</strong> This reservation form simulates a real booking flow. Actual hotel inventory, payment processing and live reservations require backend integration.</p>
+      </div>
+
+      <div class="res-grid">
+        <!-- FORM -->
+        <form class="panel" id="reservation-form" novalidate>
+          <h3><i class="fa-solid fa-book-open" style="color:var(--color-secondary)"></i> Reservation Details</h3>
+          <div class="filter-bar">
+            <div class="form-group">
+              <label class="label" for="destination">Destination</label>
+              <select class="select" id="destination" name="destination">
+                <option value="">Select Destination</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="label" for="hotel">Hotel</label>
+              <select class="select" id="hotel" name="hotel">
+                <option value="">Select Hotel</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-bar">
+            <div class="form-group">
+              <label class="label" for="checkIn">Check-in</label>
+              <input type="date" class="input" id="checkIn" name="checkIn">
+            </div>
+            <div class="form-group">
+              <label class="label" for="checkOut">Check-out</label>
+              <input type="date" class="input" id="checkOut" name="checkOut">
+            </div>
+          </div>
+
+          <div class="filter-bar">
+            <div class="form-group">
+              <label class="label" for="guests">Guests</label>
+              <input type="number" class="input" id="guests" name="guests" min="1" max="20" value="2">
+            </div>
+            <div class="form-group">
+              <label class="label" for="rooms">Rooms</label>
+              <input type="number" class="input" id="rooms" name="rooms" min="1" max="10" value="1">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="label" for="roomType">Room Type</label>
+            <select class="select" id="roomType" name="roomType">
+              <option value="">Select Room Type</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="label" for="offerCode">Offer / Coupon Code (optional)</label>
+            <input type="text" class="input" id="offerCode" name="offerCode" placeholder="e.g. GOA25" style="text-transform:uppercase">
+          </div>
+
+          <div class="filter-bar">
+            <div class="form-group">
+              <label class="label" for="guestName">Guest Name</label>
+              <input type="text" class="input" id="guestName" name="guestName" placeholder="Full name">
+            </div>
+            <div class="form-group">
+              <label class="label" for="guestEmail">Email</label>
+              <input type="email" class="input" id="guestEmail" name="guestEmail" placeholder="you@example.com">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="label" for="specialRequests">Special Requests (optional)</label>
+            <textarea class="textarea" id="specialRequests" name="specialRequests" rows="3" placeholder="Late check-in, high floor, extra pillows…"></textarea>
+          </div>
+
+          <button class="btn btn-primary btn-lg" type="submit"><i class="fa-solid fa-check"></i> Confirm Booking</button>
+        </form>
+
+        <!-- SUMMARY -->
+        <div class="panel" id="booking-summary-panel" style="position:sticky;top:1rem">
+          <h3><i class="fa-solid fa-receipt" style="color:var(--color-secondary)"></i> Booking Summary</h3>
+          <div id="booking-summary">
+            <p class="muted">Select destination, hotel and dates to see pricing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal" id="success-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-box modal-sm">
+      <div class="modal-icon" style="background:rgba(20,217,185,.14);color:#0f9d7e"><i class="fa-solid fa-circle-check"></i></div>
+      <h3 class="modal-title">Booking Confirmed!</h3>
+      <p class="muted">Your reservation has been saved. Here are your details:</p>
+      <div style="display:flex;flex-direction:column;gap:.6rem;text-align:left;background:#f8fafc;padding:1rem;border-radius:12px">
+        <div style="display:flex;justify-content:space-between"><span class="muted">Reference</span><strong class="sm-ref"></strong></div>
+        <div style="display:flex;justify-content:space-between"><span class="muted">Hotel</span><strong class="sm-hotel"></strong></div>
+        <div style="display:flex;justify-content:space-between"><span class="muted">Dates</span><strong class="sm-dates"></strong></div>
+        <div style="display:flex;justify-content:space-between"><span class="muted">Total</span><strong class="sm-total" style="color:var(--color-secondary)"></strong></div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-outline" data-close-modal="success-modal" id="dl-confirmation"><i class="fa-solid fa-download"></i> Confirmation</button>
+        <button class="btn btn-outline" data-close-modal="success-modal" id="dl-invoice"><i class="fa-solid fa-receipt"></i> Invoice</button>
+        <a class="btn btn-primary" href="bookings.html" id="go-bookings">View My Bookings</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGOUT MODAL -->
+  <div class="modal" id="logout-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-box modal-sm">
+      <div class="modal-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+      <h3 class="modal-title">Are you sure you want to log out?</h3>
+      <p class="modal-text muted">You will need to log in again to access your dashboard.</p>
+      <div class="modal-actions">
+        <button class="btn btn-outline" data-close-modal="logout-modal">Cancel</button>
+        <button class="btn btn-danger" id="logout-confirm">Confirm Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/validation.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/booking.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script src="../assets/js/dashboard.js?v=20261016logo"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // date mins
+      const ci = document.getElementById('checkIn');
+      const co = document.getElementById('checkOut');
+      ci.min = new Date().toISOString().slice(0, 10);
+      ci.addEventListener('change', () => {
+        const d = new Date(ci.value); d.setDate(d.getDate() + 1);
+        co.min = d.toISOString().slice(0, 10);
+        if (co.value && new Date(co.value) <= new Date(ci.value)) co.value = co.min;
+      });
+      // prefill offer from URL
+      const params = new URLSearchParams(location.search);
+      if (params.get('offer')) document.getElementById('offerCode').value = params.get('offer');
+    });
+  </script>
+</body>
+</html>

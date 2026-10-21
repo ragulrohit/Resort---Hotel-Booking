@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | Stackly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body style="min-height:100dvh;background:url('https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=1600&q=75') center/cover no-repeat fixed;position:relative">
+
+  <div style="position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 10%, rgba(180,25,40,.35), rgba(75,5,15,.92))"></div>
+
+  <div style="position:relative;z-index:1;min-height:100dvh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:2rem">
+    <div class="anim-fade-up" style="display:flex;flex-direction:column;align-items:center;gap:1.4rem;max-width:620px">
+      <a href="index.html" class="auth-brand" style="color:#fff;font-size:1.3rem">
+        <img class="auth-brand-logo" src="../images/Stackly_logo_clean.png" alt="Stackly">
+      </a>
+
+      <p class="float" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(6rem,18vw,11rem);line-height:1;color:#ff9aa7;text-shadow:0 8px 30px rgba(0,0,0,.45)">404</p>
+
+      <h1 style="color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.3)">Oops! This Stay Doesn't Exist.</h1>
+      <p style="color:rgba(255,255,255,.9);font-size:1.1rem">The page you were looking for checked out — or maybe it never checked in. Let's get you back to a room with a view.</p>
+
+      <div class="error-actions" style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
+        <button class="btn btn-outline btn-lg" onclick="if(document.referrer){window.history.back()}else{window.location.href='index.html'}">
+          <i class="fa-solid fa-arrow-left"></i> Go Back
+        </button>
+        <a href="index.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-house"></i> Back to Home</a>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

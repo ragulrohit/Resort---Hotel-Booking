@@ -1,0 +1,18 @@
+# Stackly — Apache 404 configuration
+# Serves the custom Stackly 404 page for any missing resource.
+ErrorDocument 404 /404.html
+
+# Optional: basic security headers for static hosting
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Optional: long-cache static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+</IfModule>

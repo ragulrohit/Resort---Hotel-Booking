@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 56" role="img" aria-labelledby="title desc">
+  <title id="title">Stackly</title>
+  <desc id="desc">Stackly hotel booking logo</desc>
+  <g fill="none" stroke="#19A7CE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 47h42"/>
+    <path d="M14 47V25l15-13 15 13v22"/>
+    <path d="M22 47V31h14v16"/>
+    <path d="M20 23h18"/>
+  </g>
+  <circle cx="29" cy="9" r="5" fill="#14D9B9"/>
+  <text x="62" y="38" fill="#0A1F3F" font-family="Plus Jakarta Sans,Arial,sans-serif" font-size="30" font-weight="800" letter-spacing="1">STACKLY</text>
+</svg>

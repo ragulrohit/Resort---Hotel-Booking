@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overview Dashboard — Stackly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body class="dashboard" data-page="dashboard" data-charts="overview">
+
+  <div class="dash-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Dashboard sidebar"></aside>
+
+    <div class="dash-main">
+      <header class="dash-header" id="dash-header"></header>
+
+      <!-- OVERVIEW INTRO -->
+      <section class="overview-intro" aria-labelledby="overview-intro-title">
+        <div class="overview-intro-copy">
+          <span class="overview-eyebrow"><i class="fa-solid fa-sparkles"></i> Your travel space</span>
+          <h2 id="overview-intro-title">Plan your next escape, <strong data-user-name>Guest</strong></h2>
+          <p>Keep your stays organised, discover new destinations and make every trip memorable.</p>
+        </div>
+        <div class="overview-intro-actions">
+          <a class="btn btn-primary" href="reservations.html"><i class="fa-solid fa-plus"></i> Book a stay</a>
+          <a class="btn btn-outline" href="destinations.html"><i class="fa-solid fa-compass"></i> Explore</a>
+        </div>
+      </section>
+
+      <!-- STATS -->
+      <div class="stat-grid">
+        <div class="stat-card anim-fade-up">
+          <div class="stat-icon bg-navy"><i class="fa-solid fa-calendar-check"></i></div>
+          <div><h3 data-stat="total">0</h3><p>Total Bookings</p></div>
+        </div>
+        <div class="stat-card anim-fade-up anim-delay-1">
+          <div class="stat-icon bg-teal"><i class="fa-solid fa-plane-departure"></i></div>
+          <div><h3 data-stat="upcoming">0</h3><p>Upcoming Stays</p></div>
+        </div>
+        <div class="stat-card anim-fade-up anim-delay-2">
+          <div class="stat-icon bg-purple"><i class="fa-solid fa-circle-check"></i></div>
+          <div><h3 data-stat="completed">0</h3><p>Completed Trips</p></div>
+        </div>
+        <div class="stat-card anim-fade-up anim-delay-3">
+          <div class="stat-icon bg-coral"><i class="fa-solid fa-ban"></i></div>
+          <div><h3 data-stat="cancelled">0</h3><p>Cancelled</p></div>
+        </div>
+        <div class="stat-card anim-fade-up anim-delay-4">
+          <div class="stat-icon bg-amber"><i class="fa-solid fa-wallet"></i></div>
+          <div><h3 data-stat="spending">$0</h3><p>Total Spending</p></div>
+        </div>
+      </div>
+
+      <!-- CHARTS -->
+      <div class="panel-grid">
+        <div class="panel">
+          <h3><i class="fa-solid fa-chart-pie" style="color:var(--color-secondary)"></i> Booking Distribution</h3>
+          <div class="chart-wrap"><canvas id="chartBooking" aria-label="Booking distribution pie chart" role="img"></canvas></div>
+        </div>
+        <div class="panel">
+          <h3><i class="fa-solid fa-chart-column" style="color:var(--color-secondary)"></i> Monthly Booking Activity</h3>
+          <div class="chart-wrap"><canvas id="chartMonthly" aria-label="Monthly bookings bar chart" role="img"></canvas></div>
+        </div>
+      </div>
+
+      <!-- RECENT + UPCOMING -->
+      <div class="panel-grid overview-content-grid">
+        <div class="panel">
+          <h3><i class="fa-solid fa-clock-rotate-left" style="color:var(--color-secondary)"></i> Recent Bookings</h3>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>Ref</th><th>Hotel</th><th>Destination</th><th>Dates</th><th>Total</th><th>Status</th></tr></thead>
+              <tbody id="recent-bookings"></tbody>
+            </table>
+          </div>
+          <div class="overview-snapshot">
+            <div class="snapshot-heading">
+              <div>
+                <span class="overview-eyebrow"><i class="fa-solid fa-compass"></i> Travel snapshot</span>
+                <h4>Make your next trip even better</h4>
+              </div>
+              <i class="fa-solid fa-plane-departure snapshot-art" aria-hidden="true"></i>
+            </div>
+            <div class="snapshot-items">
+              <a href="favorites.html"><i class="fa-solid fa-heart"></i><span><strong>Save favourites</strong><small>Keep your best stays in one place</small></span></a>
+              <a href="reviews.html"><i class="fa-solid fa-star"></i><span><strong>Share your experience</strong><small>Review a hotel from your recent trips</small></span></a>
+              <a href="../contact.html"><i class="fa-solid fa-headset"></i><span><strong>Need assistance?</strong><small>Our travel team is here to help</small></span></a>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <h3><i class="fa-solid fa-suitcase-rolling" style="color:var(--color-secondary)"></i> Upcoming Reservations</h3>
+          <div id="upcoming-cards"></div>
+        </div>
+      </div>
+
+      <!-- QUICK ACTIONS -->
+      <div class="panel">
+        <h3><i class="fa-solid fa-bolt" style="color:var(--color-secondary)"></i> Quick Actions</h3>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="reservations.html" class="btn btn-primary"><i class="fa-solid fa-plus"></i> New Booking</a>
+          <a href="destinations.html" class="btn btn-outline"><i class="fa-solid fa-map-location-dot"></i> Explore Destinations</a>
+          <a href="favorites.html" class="btn btn-outline"><i class="fa-solid fa-heart"></i> Favorite Hotels</a>
+          <a href="reviews.html" class="btn btn-outline"><i class="fa-solid fa-star"></i> Write a Review</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGOUT MODAL -->
+  <div class="modal" id="logout-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-box modal-sm">
+      <div class="modal-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+      <h3 class="modal-title">Are you sure you want to log out?</h3>
+      <p class="modal-text muted">You will need to log in again to access your dashboard.</p>
+      <div class="modal-actions">
+        <button class="btn btn-outline" data-close-modal="logout-modal">Cancel</button>
+        <button class="btn btn-danger" id="logout-confirm">Confirm Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/validation.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/booking.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script src="../assets/js/dashboard.js?v=20261016logo"></script>
+</body>
+</html>

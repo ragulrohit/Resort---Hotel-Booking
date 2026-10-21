@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile & Settings — Stackly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body class="dashboard" data-page="dashboard">
+
+  <div class="dash-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <div class="dash-main">
+      <header class="dash-header" id="dash-header"></header>
+
+      <div class="profile-page-intro">
+        <div>
+          <span class="badge badge-teal"><i class="fa-solid fa-user-gear"></i> Account Settings</span>
+          <h2>Profile &amp; Settings</h2>
+          <p class="muted">Manage your personal details, password and booking preferences in one place.</p>
+        </div>
+      </div>
+
+      <div class="profile-grid">
+        <div class="profile-left-stack">
+        <!-- PROFILE FORM -->
+        <form class="panel profile-main-card" id="profile-form" novalidate>
+          <div style="display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap">
+            <div class="avatar" style="width:80px;height:80px;box-shadow:var(--shadow-md)">
+              <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=70" alt="Profile avatar" data-sidebar-avatar>
+            </div>
+            <div>
+              <h3 data-user-name>Guest</h3>
+              <p class="muted" data-user-email>guest@example.com</p>
+              <span class="badge badge-teal" style="margin-top:6px"><i class="fa-solid fa-circle-check"></i> Verified Demo Account</span>
+            </div>
+          </div>
+
+          <h3 class="profile-section-title"><i class="fa-solid fa-id-card" style="color:var(--color-secondary)"></i> Personal Information</h3>
+          <div class="filter-bar">
+            <div class="form-group">
+              <label class="label" for="fullName">Full Name</label>
+              <input type="text" class="input" id="fullName" name="fullName" placeholder="Your full name">
+            </div>
+            <div class="form-group">
+              <label class="label" for="email">Email Address</label>
+              <input type="email" class="input" id="email" name="email" placeholder="you@example.com">
+            </div>
+          </div>
+          <div class="filter-bar">
+            <div class="form-group">
+              <label class="label" for="phone">Phone Number</label>
+              <input type="tel" class="input" id="phone" name="phone" placeholder="+1 555 000 0000">
+            </div>
+            <div class="form-group">
+              <label class="label" for="preferredDestination">Preferred Destination</label>
+              <select class="select" id="preferredDestination" name="preferredDestination">
+                <option value="">Not set</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit"><i class="fa-solid fa-floppy-disk"></i> Save Changes</button>
+        </form>
+
+          <!-- ACCOUNT INFO -->
+          <div class="panel profile-side-card">
+            <h3><i class="fa-solid fa-circle-info" style="color:var(--color-secondary)"></i> Account Information</h3>
+            <div style="display:flex;flex-direction:column;gap:.5rem">
+              <div style="display:flex;justify-content:space-between"><span class="muted">Account Type</span><strong>Frontend Demo</strong></div>
+              <div style="display:flex;justify-content:space-between"><span class="muted">Data Storage</span><strong>Browser LocalStorage</strong></div>
+              <div style="display:flex;justify-content:space-between"><span class="muted">Email</span><strong data-user-email>—</strong></div>
+            </div>
+            <button class="btn btn-danger" type="button" data-logout style="margin-top:1rem"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+          </div>
+        </div>
+
+        <div class="profile-side-stack">
+          <!-- PASSWORD -->
+          <form class="panel profile-side-card" id="password-form" novalidate>
+            <h3><i class="fa-solid fa-key" style="color:var(--color-secondary)"></i> Change Password</h3>
+            <div class="form-group">
+              <label class="label" for="currentPassword">Current Password</label>
+              <div class="password-wrap">
+                <input type="password" class="input" id="currentPassword" name="currentPassword" placeholder="Enter current password">
+                <button type="button" class="password-toggle" aria-label="Show password"><i class="fa-solid fa-eye"></i></button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="label" for="newPassword">New Password</label>
+              <div class="password-wrap">
+                <input type="password" class="input" id="newPassword" name="newPassword" placeholder="Min 8 chars, uppercase, lowercase & number">
+                <button type="button" class="password-toggle" aria-label="Show password"><i class="fa-solid fa-eye"></i></button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="label" for="confirmPassword">Confirm New Password</label>
+              <div class="password-wrap">
+                <input type="password" class="input" id="confirmPassword" name="confirmPassword" placeholder="Re-enter new password">
+                <button type="button" class="password-toggle" aria-label="Show password"><i class="fa-solid fa-eye"></i></button>
+              </div>
+            </div>
+            <button class="btn btn-primary" type="submit"><i class="fa-solid fa-rotate"></i> Update Password</button>
+          </form>
+
+          <!-- PREFERENCES -->
+          <form class="panel profile-side-card" id="prefs-form">
+            <h3><i class="fa-solid fa-sliders" style="color:var(--color-secondary)"></i> Preferences</h3>
+            <label class="checkbox" style="margin:.5rem 0">
+              <input type="checkbox" name="notify" id="notify"> Enable email notifications for deals & booking updates
+            </label>
+            <div class="form-group">
+              <label class="label" for="theme">Theme Preference</label>
+              <select class="select" id="theme" name="theme">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+                <option value="system">System</option>
+              </select>
+            </div>
+            <button class="btn btn-outline" type="submit"><i class="fa-solid fa-check"></i> Save Preferences</button>
+          </form>
+
+          <!-- ACCOUNT INFO (moved to the left column) -->
+          <div id="legacy-account-info" class="panel profile-side-card">
+            <h3><i class="fa-solid fa-circle-info" style="color:var(--color-secondary)"></i> Account Information</h3>
+            <div style="display:flex;flex-direction:column;gap:.5rem">
+              <div style="display:flex;justify-content:space-between"><span class="muted">Account Type</span><strong>Frontend Demo</strong></div>
+              <div style="display:flex;justify-content:space-between"><span class="muted">Data Storage</span><strong>Browser LocalStorage</strong></div>
+              <div style="display:flex;justify-content:space-between"><span class="muted">Email</span><strong data-user-email>—</strong></div>
+            </div>
+            <button class="btn btn-danger" type="button" data-logout style="margin-top:1rem"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASSWORD SUCCESS MODAL -->
+  <div class="modal" id="password-success-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-box modal-sm profile-success-modal">
+      <div class="modal-icon" style="background:rgba(20,217,185,.14);color:#0f9d7e"><i class="fa-solid fa-circle-check"></i></div>
+      <h3 class="modal-title">Password Updated</h3>
+      <p class="muted">Your password has been changed successfully.</p>
+      <div class="modal-actions">
+        <button class="btn btn-primary" data-close-modal="password-success-modal">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGOUT MODAL -->
+  <div class="modal" id="logout-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-box modal-sm">
+      <div class="modal-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+      <h3 class="modal-title">Are you sure you want to log out?</h3>
+      <p class="modal-text muted">You will need to log in again to access your dashboard.</p>
+      <div class="modal-actions">
+        <button class="btn btn-outline" data-close-modal="logout-modal">Cancel</button>
+        <button class="btn btn-danger" id="logout-confirm">Confirm Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/validation.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/booking.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script src="../assets/js/dashboard.js?v=20261016logo"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sel = document.getElementById('preferredDestination');
+      StacklyData.destinations.forEach(d => sel.appendChild(new Option(d.name, d.name)));
+      // re-apply user's saved preference after options exist
+      const user = StacklyStorage.getCurrentUser();
+      if (user && user.preferredDestination) sel.value = user.preferredDestination;
+    });
+  </script>
+</body>
+</html>

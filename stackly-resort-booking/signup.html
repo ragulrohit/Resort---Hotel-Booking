@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up — Stackly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/auth.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body data-page="auth">
+
+  <div class="auth-page">
+    <!-- LEFT VISUAL -->
+    <aside class="auth-left signup anim-fade-in">
+      <a href="index.html" class="auth-brand">
+        <img class="auth-brand-logo" src="../images/Stackly_logo_clean.png" alt="Stackly">
+      </a>
+      <div class="auth-content anim-fade-up anim-delay-2">
+        <h1>Join the World's Most Beautiful <span class="gradient-text">Stays.</span></h1>
+        <p>Create your free Stackly account to unlock exclusive deals, personalised recommendations and a seamless booking dashboard.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <span class="badge" style="background:rgba(255,255,255,.14);color:#fff"><i class="fa-solid fa-gift"></i> Member Deals</span>
+          <span class="badge" style="background:rgba(255,255,255,.14);color:#fff"><i class="fa-solid fa-bolt"></i> Instant Booking</span>
+        </div>
+      </div>
+      <p style="color:rgba(255,255,255,.75);font-size:.9rem">© 2026 Stackly. Frontend demonstration.</p>
+    </aside>
+
+    <!-- RIGHT FORM -->
+    <section class="auth-right">
+      <a class="auth-home-link" href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+      <div class="auth-card anim-fade-up">
+        <div class="auth-header">
+          <h2>Create Your Account</h2>
+          <p>It only takes a minute — then the world is yours to explore.</p>
+        </div>
+
+        <form id="signup-form" class="form-grid" novalidate>
+          <div class="form-group">
+            <label class="label" for="fullName">Full Name</label>
+            <input type="text" class="input" id="fullName" name="fullName" placeholder="e.g. Jeeva Kumar" autocomplete="name" required>
+          </div>
+
+          <div class="form-group">
+            <label class="label" for="email">Email Address</label>
+            <input type="email" class="input" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          </div>
+
+          <div class="form-group">
+            <label class="label" for="phone">Phone Number</label>
+            <input type="tel" class="input" id="phone" name="phone" placeholder="+1 555 000 0000" autocomplete="tel" required>
+          </div>
+
+          <div class="form-group">
+            <label class="label" for="role">Select Role</label>
+            <div class="role-toggle" role="radiogroup" aria-label="Select role">
+              <label><input type="radio" name="role" value="traveller" required><span>Traveller</span></label>
+              <label><input type="radio" name="role" value="property-partner"><span>Property Partner</span></label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="label" for="password">Password</label>
+            <div class="password-wrap">
+              <input type="password" class="input" id="password" name="password" placeholder="Enter your password" autocomplete="new-password" required>
+              <button type="button" class="password-toggle" aria-label="Show password"><i class="fa-solid fa-eye"></i></button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="label" for="confirmPassword">Confirm Password</label>
+            <div class="password-wrap">
+              <input type="password" class="input" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" autocomplete="new-password" required>
+              <button type="button" class="password-toggle" aria-label="Show password"><i class="fa-solid fa-eye"></i></button>
+            </div>
+          </div>
+
+          <div class="terms-wrap">
+            <label class="checkbox">
+              <input type="checkbox" name="terms" id="terms"> I agree to the <a href="#" class="link-inline" id="terms-link">Terms &amp; Conditions</a>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg"><i class="fa-solid fa-user-plus"></i> Create Account</button>
+
+          <div class="divider">OR</div>
+
+          <button type="button" class="google-btn" data-google-auth>
+            <svg class="google-logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+              <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+              <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+              <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+            </svg>
+            Continue with Google
+          </button>
+
+          <p class="text-center">Already have an account? <a class="link-inline" href="login.html">Login</a></p>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/validation.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/booking.js"></script>
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const t = document.getElementById('terms-link');
+      if (t) t.addEventListener('click', (e) => {
+        e.preventDefault();
+        StacklyValidate.toast('In this demo, accepting the checkbox confirms you agree to the demo terms.', 'info');
+      });
+    });
+  </script>
+</body>
+</html>

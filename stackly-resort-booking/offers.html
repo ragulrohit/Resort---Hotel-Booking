@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offers — Stackly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand"><img class="brand-logo" src="../images/Stackly_logo_clean.png" alt="Stackly"></a>
+      <nav class="nav-menu" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <div class="dropdown">
+          <a href="destinations.html" class="nav-link dropdown-toggle">Destinations <i class="fa-solid fa-chevron-down" style="font-size:.7em"></i></a>
+          <div class="dropdown-menu">
+            <a href="destinations.html">All Destinations</a>
+            <a href="destinations.html?type=beach">Beach Escapes</a>
+            <a href="destinations.html?type=city">City Breaks</a>
+          </div>
+        </div>
+        <a href="hotels.html" class="nav-link">Hotels &amp; Resorts</a>
+        <a href="offers.html" class="nav-link active">Offers</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+        <div class="mobile-auth-links">
+          <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+      </nav>
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline btn-sm" id="nav-login-btn">Login</a>
+        <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="bg-animated" style="padding-top:120px;padding-bottom:4rem;color:#fff;text-align:center">
+      <div class="container anim-fade-up" style="display:flex;flex-direction:column;align-items:center;gap:1rem">
+        <span class="badge" style="background:rgba(255,255,255,.2);color:#fff"><i class="fa-solid fa-tags"></i> Save Up to 30%</span>
+        <h1 style="color:#fff">Exclusive Offers &amp; Deals</h1>
+        <p style="color:rgba(255,255,255,.92);max-width:60ch">Seasonal deals, weekend getaways, luxury packages, honeymoon specials and family offers — all with verified coupon codes.</p>
+      </div>
+    </section>
+
+    <!-- COUPON CHECKER -->
+    <section class="section">
+      <div class="container">
+        <div class="panel reveal" style="max-width:640px;margin:0 auto">
+          <h3><i class="fa-solid fa-ticket" style="color:var(--color-secondary)"></i> Have a Coupon Code?</h3>
+          <p>Enter your code below to apply the discount and see your updated price instantly.</p>
+          <form id="coupon-form" style="display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap" novalidate>
+            <div class="form-group" style="flex:1;min-width:200px">
+              <label class="label" for="coupon-input">Coupon Code</label>
+              <input type="text" class="input" id="coupon-input" placeholder="e.g. GOA25" style="text-transform:uppercase">
+            </div>
+            <div class="form-group">
+              <label class="label" for="coupon-price">Original Price ($)</label>
+              <input type="number" class="input" id="coupon-price" min="1" value="1000">
+            </div>
+            <button class="btn btn-primary" type="submit">Apply Offer</button>
+          </form>
+          <div id="coupon-result" style="margin-top:1rem"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFERS GRID -->
+    <section class="section section-alt" style="padding-top:0">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>All Available Offers</h2>
+          <p>Click "Apply Offer" to auto-fill the coupon code above.</p>
+        </div>
+        <div class="grid cards-4 stagger" id="offers-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" aria-label="Stackly home"><img class="footer-brand-logo footer-brand-logo-light" src="../images/Stackly_logo_clean.png" alt="Stackly"></a>
+          <p>Stackly is a premium resort, hotel and villa booking platform.</p>
+          <div style="display:flex;gap:10px">
+            <a href="404.html" class="icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="icon-btn" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin-bottom:1rem">Explore</h3>
+          <div class="footer-links">
+            <a class="footer-link" href="destinations.html">Destinations</a>
+            <a class="footer-link" href="hotels.html">Hotels</a>
+            <a class="footer-link" href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin-bottom:1rem">Account</h3>
+          <div class="footer-links">
+            <a class="footer-link" href="login.html">Login</a>
+            <a class="footer-link" href="signup.html">Sign Up</a>
+            <a class="footer-link" href="dashboard/overview.html">My Dashboard</a>
+            <a class="footer-link" href="dashboard/bookings.html">My Bookings</a>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin-bottom:1rem">Support</h3>
+          <div class="footer-links">
+            <a class="footer-link" href="contact.html#faq">FAQ</a>
+            <a class="footer-link" href="contact.html">Help Centre</a>
+            <a class="footer-link" href="contact.html">Privacy Policy</a>
+            <a class="footer-link" href="contact.html">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© 2026 Stackly. Frontend demo.</p></div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/validation.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/booking.js"></script>
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal, .stagger').forEach(el => io.observe(el));
+
+
+      // render offers
+      const grid = document.getElementById('offers-grid');
+      StacklyData.offers.forEach(o => {
+        const daysLeft = Math.max(0, Math.ceil((new Date(o.expiry) - new Date()) / 86400000));
+        grid.insertAdjacentHTML('beforeend', `
+          <article class="card">
+            <div class="card-media">
+              <img src="${o.image}" alt="${o.title}" loading="lazy">
+              <span class="badge badge-accent" style="position:absolute;top:12px;left:12px">${o.tag}</span>
+              <span class="badge" style="position:absolute;top:12px;right:12px;background:rgba(255,255,255,.92);color:var(--color-primary)"><i class="fa-regular fa-clock"></i> ${daysLeft}d left</span>
+            </div>
+            <div class="card-body">
+              <span class="badge badge-teal">${o.type}</span>
+              <h3 class="offer-title">${o.title}</h3>
+              <p class="muted offer-description">${o.description}</p>
+              <div class="offer-meta" style="background:rgba(10,31,63,.05);padding:.8rem 1rem;border-radius:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+                <span>Code: <strong style="letter-spacing:.06em">${o.code}</strong></span>
+                <span class="muted">Expires: ${o.expiry}</span>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-outline" data-apply-offer="${o.code}">Apply Offer</button>
+                <a class="btn btn-primary" href="dashboard/reservations.html?offer=${o.code}">View Package</a>
+              </div>
+            </div>
+          </article>`);
+      });
+
+      document.querySelectorAll('[data-apply-offer]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.getElementById('coupon-input').value = btn.dataset.applyOffer;
+          document.getElementById('coupon-form').requestSubmit();
+          document.getElementById('coupon-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      });
+
+      // coupon form
+      document.getElementById('coupon-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const code = document.getElementById('coupon-input').value.trim().toUpperCase();
+        const price = Number(document.getElementById('coupon-price').value);
+        const out = document.getElementById('coupon-result');
+        if (!code) { out.innerHTML = '<p style="color:var(--color-accent)">Please enter a coupon code.</p>'; return; }
+        if (!price || price <= 0) { out.innerHTML = '<p style="color:var(--color-accent)">Please enter a valid price.</p>'; return; }
+        const offer = StacklyData.offers.find(o => o.code === code);
+        if (!offer) {
+          out.innerHTML = `<div style="background:rgba(252,78,103,.08);padding:1rem;border-radius:12px;color:var(--color-accent)"><i class="fa-solid fa-circle-xmark"></i> Invalid coupon code. Try one from the list below.</div>`;
+          return;
+        }
+        const discount = Math.round(price * offer.discount / 100);
+        const final = price - discount;
+        out.innerHTML = `
+          <div style="background:rgba(20,217,185,.1);padding:1.1rem;border-radius:12px;display:flex;flex-direction:column;gap:.5rem">
+            <span style="color:#0f9d7e;font-weight:700"><i class="fa-solid fa-circle-check"></i> Coupon applied: ${offer.title}</span>
+            <div style="display:flex;justify-content:space-between"><span>Original price</span><strong>$${price.toLocaleString()}</strong></div>
+            <div style="display:flex;justify-content:space-between"><span>Discount (${offer.discount}%)</span><strong style="color:var(--color-accent)">− $${discount.toLocaleString()}</strong></div>
+            <div style="display:flex;justify-content:space-between;font-size:1.2rem"><span>Updated price</span><strong style="color:var(--color-secondary)">$${final.toLocaleString()}</strong></div>
+            <a class="btn btn-primary btn-sm" href="dashboard/reservations.html?offer=${offer.code}" style="margin-top:.5rem">Book with this Offer</a>
+          </div>`;
+      });
+
+      // prefill from URL
+      const params = new URLSearchParams(location.search);
+      if (params.get('offer')) {
+        document.getElementById('coupon-input').value = params.get('offer');
+        document.getElementById('coupon-form').requestSubmit();
+      }
+    });
+  </script>
+</body>
+</html>

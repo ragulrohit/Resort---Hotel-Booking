@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stackly — Discover Your Perfect Getaway</title>
+  <meta name="description" content="Stackly — premium resort, hotel, villa and luxury stay booking platform. Discover beautiful destinations and unforgettable stays.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand"><img class="brand-logo" src="../images/Stackly_logo_clean.png" alt="Stackly"></a>
+
+      <nav class="nav-menu" id="nav-menu" aria-label="Main navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <div class="dropdown">
+          <a href="destinations.html" class="nav-link dropdown-toggle">Destinations <i class="fa-solid fa-chevron-down" style="font-size:.7em"></i></a>
+          <div class="dropdown-menu">
+            <a href="destinations.html">All Destinations</a>
+            <a href="destinations.html?type=beach">Beach Escapes</a>
+            <a href="destinations.html?type=city">City Breaks</a>
+            <a href="destinations.html?type=mountain">Mountain Retreats</a>
+          </div>
+        </div>
+        <a href="hotels.html" class="nav-link">Hotels &amp; Resorts</a>
+        <a href="offers.html" class="nav-link">Offers</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+        <div class="mobile-auth-links">
+          <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline btn-sm" id="nav-login-btn">Login</a>
+        <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="hero-content anim-fade-up">
+        <span class="badge"><i class="fa-solid fa-compass"></i> Premium Stays Worldwide</span>
+        <h1>Discover Your Perfect <span class="gradient-text">Getaway</span></h1>
+        <p>From sun-kissed beaches to snow-capped Alps — Stackly curates the world's most beautiful resorts, hotels and villas, so your next escape is always one click away.</p>
+        <div class="hero-actions">
+          <a href="destinations.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-earth-americas"></i> Explore Destinations</a>
+          <a href="dashboard/reservations.html" class="btn btn-outline btn-lg"><i class="fa-solid fa-calendar-check"></i> Book Your Stay</a>
+        </div>
+
+        <!-- Search form -->
+        <form class="search-card" id="hero-search" novalidate>
+          <div class="search-form">
+            <div class="form-group">
+              <label class="label" for="destination"><i class="fa-solid fa-location-dot"></i> Destination</label>
+              <select class="select" id="destination" name="destination">
+                <option value="">Where to?</option>
+                <option>Goa</option>
+                <option>Maldives</option>
+                <option>Bali</option>
+                <option>Kerala</option>
+                <option>Dubai</option>
+                <option>Switzerland</option>
+                <option>Santorini</option>
+                <option>Paris</option>
+                <option>Jaipur</option>
+                <option>Queenstown</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="label" for="check-in"><i class="fa-solid fa-calendar-days"></i> Check-in</label>
+              <input type="date" class="input" id="check-in" name="checkIn">
+            </div>
+            <div class="form-group">
+              <label class="label" for="check-out"><i class="fa-solid fa-calendar-check"></i> Check-out</label>
+              <input type="date" class="input" id="check-out" name="checkOut">
+            </div>
+            <div class="form-group">
+              <label class="label" for="guests"><i class="fa-solid fa-user-group"></i> Guests</label>
+              <select class="select" id="guests" name="guests">
+                <option>1 Guest</option>
+                <option selected>2 Guests</option>
+                <option>3 Guests</option>
+                <option>4 Guests</option>
+                <option>5+ Guests</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="label" for="rooms"><i class="fa-solid fa-bed"></i> Rooms</label>
+              <select class="select" id="rooms" name="rooms">
+                <option selected>1 Room</option>
+                <option>2 Rooms</option>
+                <option>3 Rooms</option>
+                <option>4 Rooms</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg" style="min-height:50px"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================= FEATURED DESTINATIONS ================= -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="badge"><i class="fa-solid fa-star"></i> Featured Destinations</span>
+          <h2>Explore the World's Most Beautiful Places</h2>
+          <p>Hand-picked destinations loved by thousands of Stackly travellers.</p>
+        </div>
+        <div class="grid cards-4 stagger" id="featured-dest"></div>
+        <div class="text-center" style="margin-top:2rem">
+          <a href="destinations.html" class="btn btn-outline">View All Destinations <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= POPULAR HOTELS ================= -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="badge badge-accent"><i class="fa-solid fa-fire"></i> Popular Right Now</span>
+          <h2>Popular Hotels &amp; Resorts</h2>
+          <p>World-class stays with exceptional ratings, luxury amenities and unforgettable views.</p>
+        </div>
+        <div class="grid cards-4 stagger" id="popular-hotels"></div>
+        <div class="text-center" style="margin-top:2rem">
+          <a href="hotels.html" class="btn btn-primary">Browse All Hotels <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= RECOMMENDED ================= -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="badge badge-teal"><i class="fa-solid fa-wand-magic-sparkles"></i> Recommended For You</span>
+          <h2>Recommended Stays</h2>
+          <p>Based on what travellers love most this season — romance, adventure, relaxation and culture.</p>
+        </div>
+        <div class="grid cards-4 stagger" id="recommended-stays"></div>
+      </div>
+    </section>
+
+    <!-- ================= OFFERS ================= -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="badge"><i class="fa-solid fa-tags"></i> Limited-Time Offers</span>
+          <h2>Special Offers &amp; Seasonal Promotions</h2>
+          <p>Save big on your dream escape with our exclusive Stackly deals.</p>
+        </div>
+        <div class="grid cards-3 stagger" id="home-offers"></div>
+        <div class="text-center" style="margin-top:2rem">
+          <a href="offers.html" class="btn btn-outline">See All Offers <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TESTIMONIALS ================= -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="badge"><i class="fa-solid fa-quote-left"></i> Guest Stories</span>
+          <h2>Loved by Travellers Worldwide</h2>
+        </div>
+        <div class="grid cards-4 stagger" id="testimonials"></div>
+      </div>
+    </section>
+
+    <!-- ================= NEWSLETTER ================= -->
+    <section class="section bg-animated" style="color:#fff">
+      <div class="container">
+        <div class="text-center reveal" style="max-width:640px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1rem">
+          <h2 style="color:#fff">Join the Stackly Community</h2>
+          <p style="color:rgba(255,255,255,.92)">Subscribe for exclusive deals, travel inspiration and early access to seasonal offers.</p>
+          <form id="newsletter-form" class="search-card" style="width:100%;max-width:520px" novalidate>
+            <div style="display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap">
+              <div class="form-group" style="flex:1;min-width:220px">
+                <label class="label" for="nl-email">Email Address</label>
+                <input type="email" class="input" id="nl-email" name="email" placeholder="you@example.com">
+              </div>
+              <button class="btn btn-primary" type="submit" style="min-height:50px">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" aria-label="Stackly home"><img class="footer-brand-logo footer-brand-logo-light" src="../images/Stackly_logo_clean.png" alt="Stackly"></a>
+          <p>Stackly is a premium resort, hotel and villa booking platform making luxury stays accessible and unforgettable.</p>
+          <div style="display:flex;gap:10px">
+            <a href="404.html" class="icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="icon-btn" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin-bottom:1rem">Explore</h3>
+          <div class="footer-links">
+            <a class="footer-link" href="destinations.html">Destinations</a>
+            <a class="footer-link" href="hotels.html">Hotels &amp; Resorts</a>
+            <a class="footer-link" href="offers.html">Offers</a>
+            <a class="footer-link" href="contact.html">Contact Us</a>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin-bottom:1rem">Account</h3>
+          <div class="footer-links">
+            <a class="footer-link" href="login.html">Login</a>
+            <a class="footer-link" href="signup.html">Sign Up</a>
+            <a class="footer-link" href="dashboard/overview.html">My Dashboard</a>
+            <a class="footer-link" href="dashboard/bookings.html">My Bookings</a>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin-bottom:1rem">Support</h3>
+          <div class="footer-links">
+            <a class="footer-link" href="contact.html#faq">FAQ</a>
+            <a class="footer-link" href="contact.html">Help Centre</a>
+            <a class="footer-link" href="contact.html">Privacy Policy</a>
+            <a class="footer-link" href="contact.html">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Stackly. All rights reserved. Frontend demo — no real reservations or payments are processed.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= DETAIL MODAL ================= -->
+  <div class="modal" id="detail-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="icon-btn" data-close-modal="detail-modal" aria-label="Close" style="align-self:flex-end"><i class="fa-solid fa-xmark"></i></button>
+      <img class="dm-img" src="" alt="" style="width:100%;height:240px;object-fit:cover;border-radius:14px">
+      <h2 class="dm-title"></h2>
+      <p class="dm-location muted"><i class="fa-solid fa-location-dot"></i> <span></span></p>
+      <p class="dm-desc"></p>
+      <div class="dm-amenities" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+      <ul class="dm-rooms" style="display:flex;flex-direction:column;gap:6px;color:var(--color-text-light)"></ul>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <span class="price dm-price"></span>
+        <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Book This Hotel <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/validation.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/booking.js"></script>
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    // Homepage dynamic sections
+    document.addEventListener('DOMContentLoaded', () => {
+      // featured destinations
+      const fd = document.getElementById('featured-dest');
+      StacklyData.destinations.slice(0, 8).forEach(d => {
+        fd.insertAdjacentHTML('beforeend', `
+          <article class="dest-card">
+            <div class="dest-img-wrap"><img src="${d.image}" alt="${d.name}" loading="lazy"></div>
+            <div class="dest-body">
+              <div class="dest-head">
+                <h3 class="dest-title">${d.name}, ${d.country}</h3>
+                <span class="rating"><i class="fa-solid fa-star"></i> ${d.rating}</span>
+              </div>
+              <p class="dest-desc">${d.description.slice(0, 110)}…</p>
+              <div class="dest-actions">
+                <a class="btn btn-primary" href="destinations.html?dest=${d.id}">Explore Destination</a>
+              </div>
+            </div>
+          </article>`);
+      });
+
+      // popular hotels (top 8 by reviews)
+      const ph = document.getElementById('popular-hotels');
+      const popular = StacklyData.hotels.slice().sort((a, b) => b.reviews - a.reviews).slice(0, 8);
+      popular.forEach(h => {
+        ph.insertAdjacentHTML('beforeend', `
+          <article class="hotel-card">
+            <div class="hotel-img-wrap"><img src="${h.image}" alt="${h.name}" loading="lazy"></div>
+            <div class="hotel-body">
+              <div class="hotel-head">
+                <div>
+                  <h3 class="hotel-title">${h.name}</h3>
+                  <p class="hotel-loc"><i class="fa-solid fa-location-dot"></i> ${h.destination} • ${h.stars} ★</p>
+                </div>
+                <span class="price">$${h.price}<span class="night">/night</span></span>
+              </div>
+              <div class="hotel-amenities">${h.amenities.slice(0, 4).map(a => `<span class="chip-sm">${StacklyData.amenityLabels[a]}</span>`).join('')}</div>
+              <div class="hotel-actions">
+                <button class="btn btn-ghost" data-view-details data-hotel-id="${h.id}">View Details</button>
+                <a class="btn btn-primary" href="dashboard/reservations.html?hotel=${h.id}">Book Now</a>
+              </div>
+            </div>
+          </article>`);
+      });
+
+      // recommended
+      const rs = document.getElementById('recommended-stays');
+      StacklyData.hotels.slice(6, 10).forEach(h => {
+        rs.insertAdjacentHTML('beforeend', `
+          <article class="card">
+            <div class="card-media"><img src="${h.image}" alt="${h.name}" loading="lazy"></div>
+            <div class="card-body">
+              <span class="badge badge-teal">${h.type}</span>
+              <h3>${h.name}</h3>
+              <p class="muted">${h.short}</p>
+              <div class="card-footer">
+                <span class="price">$${h.price}<span class="night">/night</span></span>
+                <a class="btn btn-outline btn-sm" href="hotels.html?hotel=${h.id}">View</a>
+              </div>
+            </div>
+          </article>`);
+      });
+
+      // offers
+      const ho = document.getElementById('home-offers');
+      StacklyData.offers.slice(0, 3).forEach(o => {
+        ho.insertAdjacentHTML('beforeend', `
+          <article class="card">
+            <div class="card-media"><img src="${o.image}" alt="${o.title}" loading="lazy"><span class="badge badge-accent" style="position:absolute;top:12px;left:12px">${o.tag}</span></div>
+            <div class="card-body">
+              <span class="badge">${o.type}</span>
+              <h3>${o.title}</h3>
+              <p class="muted">${o.description.slice(0, 100)}…</p>
+              <div class="card-footer">
+                <span class="muted">Code: <strong>${o.code}</strong></span>
+                <a class="btn btn-primary btn-sm" href="offers.html">View Offer</a>
+              </div>
+            </div>
+          </article>`);
+      });
+
+      // testimonials
+      const tt = document.getElementById('testimonials');
+      StacklyData.testimonials.forEach(t => {
+        tt.insertAdjacentHTML('beforeend', `
+          <div class="testimonial-card">
+            <span class="rating">${'★'.repeat(t.rating)}${'☆'.repeat(5 - t.rating)}</span>
+            <p class="testimonial-text">"${t.text}"</p>
+            <div class="testimonial-user">
+              <div class="avatar"><img src="${t.avatar}" alt="${t.name}" loading="lazy"></div>
+              <div>
+                <h4 style="color:var(--color-primary)">${t.name}</h4>
+                <p class="muted">${t.role}</p>
+              </div>
+            </div>
+          </div>`);
+      });
+
+      // reveal observer
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal, .stagger').forEach(el => io.observe(el));
+
+      // login button text if logged in
+      if (user && lb) lb.href = 'dashboard/overview.html';
+
+      // re-bind view details for dynamically added cards
+      StacklyApp.bindViewDetails();
+    });
+  </script>
+</body>
+</html>

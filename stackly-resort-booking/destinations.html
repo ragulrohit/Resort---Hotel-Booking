@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destinations — Stackly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand"><img class="brand-logo" src="../images/Stackly_logo_clean.png" alt="Stackly"></a>
+      <nav class="nav-menu" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <div class="dropdown">
+          <a href="destinations.html" class="nav-link dropdown-toggle active">Destinations <i class="fa-solid fa-chevron-down" style="font-size:.7em"></i></a>
+          <div class="dropdown-menu">
+            <a href="destinations.html">All Destinations</a>
+            <a href="destinations.html?type=beach">Beach Escapes</a>
+            <a href="destinations.html?type=city">City Breaks</a>
+            <a href="destinations.html?type=mountain">Mountain Retreats</a>
+          </div>
+        </div>
+        <a href="hotels.html" class="nav-link">Hotels &amp; Resorts</a>
+        <a href="offers.html" class="nav-link">Offers</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+        <div class="mobile-auth-links">
+          <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+      </nav>
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline btn-sm" id="nav-login-btn">Login</a>
+        <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section style="position:relative;min-height:52vh;display:flex;align-items:center;text-align:center;color:#fff;background:url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1600&q=75') center/cover no-repeat;isolation:isolate;padding-top:80px">
+      <div style="position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 10%, rgba(10,31,63,.25), rgba(10,31,63,.78));z-index:-1"></div>
+      <div class="container anim-fade-up" style="display:flex;flex-direction:column;align-items:center;gap:1rem">
+        <span class="badge" style="background:rgba(255,255,255,.16);color:#fff"><i class="fa-solid fa-map-location-dot"></i> 10+ Curated Destinations</span>
+        <h1>Where Will Your Story Take You?</h1>
+        <p style="color:rgba(255,255,255,.9);max-width:60ch">From tropical island paradises to historic European cities — find the destination that matches your dream.</p>
+      </div>
+    </section>
+
+    <!-- FILTERS + GRID -->
+    <section class="section">
+      <div class="container">
+        <div class="filter-bar reveal" style="margin-bottom:2rem;background:#fff;padding:1.2rem;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm)">
+          <div class="form-group">
+            <label class="label" for="dest-search"><i class="fa-solid fa-magnifying-glass"></i> Search</label>
+            <input type="search" class="input" id="dest-search" placeholder="Search destinations…">
+          </div>
+          <div class="form-group">
+            <label class="label" for="region-filter">Region</label>
+            <select class="select" id="region-filter">
+              <option value="all">All Regions</option>
+              <option value="asia">Asia</option>
+              <option value="europe">Europe</option>
+              <option value="middle-east">Middle East</option>
+              <option value="oceania">Oceania</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="label" for="budget-filter">Budget</label>
+            <select class="select" id="budget-filter">
+              <option value="all">All Budgets</option>
+              <option value="budget">Budget-Friendly</option>
+              <option value="mid">Mid-Range</option>
+              <option value="luxury">Luxury</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="label" for="type-filter">Type</label>
+            <select class="select" id="type-filter">
+              <option value="all">All Types</option>
+              <option value="beach">Beach</option>
+              <option value="city">City</option>
+              <option value="mountain">Mountain</option>
+              <option value="island">Island</option>
+              <option value="tropical">Tropical</option>
+              <option value="nature">Nature</option>
+              <option value="luxury">Luxury</option>
+              <option value="heritage">Heritage</option>
+              <option value="adventure">Adventure</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid cards-3 stagger" id="dest-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" aria-label="Stackly home"><img class="footer-brand-logo footer-brand-logo-light" src="../images/Stackly_logo_clean.png" alt="Stackly"></a>
+          <p>Stackly is a premium resort, hotel and villa booking platform making luxury stays accessible and unforgettable.</p>
+          <div style="display:flex;gap:10px">
+            <a href="404.html" class="icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="icon-btn" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin-bottom:1rem">Explore</h3>
+          <div class="footer-links">
+            <a class="footer-link" href="destinations.html">Destinations</a>
+            <a class="footer-link" href="hotels.html">Hotels &amp; Resorts</a>
+            <a class="footer-link" href="offers.html">Offers</a>
+            <a class="footer-link" href="contact.html">Contact Us</a>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin-bottom:1rem">Account</h3>
+          <div class="footer-links">
+            <a class="footer-link" href="login.html">Login</a>
+            <a class="footer-link" href="signup.html">Sign Up</a>
+            <a class="footer-link" href="dashboard/overview.html">My Dashboard</a>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin-bottom:1rem">Support</h3>
+          <div class="footer-links">
+            <a class="footer-link" href="contact.html#faq">FAQ</a>
+            <a class="footer-link" href="contact.html">Help Centre</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© 2026 Stackly. Frontend demo.</p></div>
+    </div>
+  </footer>
+
+  <!-- DESTINATION DETAILS MODAL -->
+  <div class="modal" id="dest-details-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="icon-btn" data-close-modal="dest-details-modal" aria-label="Close" style="align-self:flex-end"><i class="fa-solid fa-xmark"></i></button>
+      <img class="dd-img" src="" alt="" style="width:100%;height:220px;object-fit:cover;border-radius:14px">
+      <h2 class="dd-title"></h2>
+      <p class="muted dd-country"></p>
+      <p class="dd-desc"></p>
+      <div class="dd-highlights" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+      <h3>Hotels in this destination</h3>
+      <div class="dd-hotels" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/validation.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/booking.js"></script>
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // prefill filters from URL and re-render
+      const params = new URLSearchParams(location.search);
+      const tf = document.getElementById('type-filter');
+      const ds = document.getElementById('dest-search');
+      if (params.get('type')) tf.value = params.get('type');
+      if (params.get('dest')) {
+        const d = StacklyData.destinationById(params.get('dest'));
+        if (d) ds.value = d.name;
+      }
+      if (params.get('type') || params.get('dest')) {
+        ds.dispatchEvent(new Event('input', { bubbles: true }));
+        tf.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+
+      // reveal
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal, .stagger').forEach(el => io.observe(el));
+
+      // login button
+
+      // details modal binding (delegated)
+      document.body.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-dest-details]');
+        if (!btn) return;
+        const d = StacklyData.destinationById(btn.dataset.id);
+        if (!d) return;
+        const modal = document.getElementById('dest-details-modal');
+        modal.querySelector('.dd-img').src = d.image;
+        modal.querySelector('.dd-img').alt = d.name;
+        modal.querySelector('.dd-title').textContent = d.name + ', ' + d.country;
+        modal.querySelector('.dd-country').textContent = d.type + ' • ' + d.budget + ' • ★ ' + d.rating;
+        modal.querySelector('.dd-desc').textContent = d.description;
+        modal.querySelector('.dd-highlights').innerHTML = (d.highlights || []).map(h => `<span class="chip"><i class="fa-solid fa-check"></i> ${h}</span>`).join('');
+        const hotels = StacklyData.hotelsByDestination(d.id);
+        modal.querySelector('.dd-hotels').innerHTML = hotels.length ? hotels.slice(0, 4).map(h => `
+          <div style="display:flex;gap:10px;align-items:center;background:#fff;border-radius:12px;padding:8px;box-shadow:var(--shadow-sm)">
+            <img src="${h.image}" alt="${h.name}" style="width:60px;height:50px;border-radius:10px;object-fit:cover">
+            <div>
+              <strong style="font-size:.92rem">${h.name}</strong>
+              <p class="muted" style="font-size:.88rem">$${h.price}/night</p>
+            </div>
+          </div>`).join('') : '<p class="muted">No hotels listed in demo for this destination yet.</p>';
+        StacklyValidate.openModal('dest-details-modal');
+      });
+    });
+  </script>
+</body>
+</html>
