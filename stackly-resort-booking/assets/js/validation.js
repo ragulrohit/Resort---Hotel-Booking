@@ -1,5 +1,5 @@
-/* ============================================================
-   Stackly — validation.js
+﻿/* ============================================================
+   Stackly â€” validation.js
    Reusable form validation helpers for every page.
    ============================================================ */
 
@@ -248,7 +248,7 @@ const StacklyValidate = (() => {
       btn.dataset.origText = btn.innerHTML;
       btn.disabled = true;
       btn.classList.add('btn-loading');
-      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> ${loadingText || 'Please wait…'}`;
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> ${loadingText || 'Please waitâ€¦'}`;
     } else {
       btn.disabled = false;
       btn.classList.remove('btn-loading');
@@ -346,3 +346,4 @@ const StacklyValidate = (() => {
 })();
 
 document.addEventListener('DOMContentLoaded', () => StacklyValidate.bindCustomSelects());
+

@@ -295,7 +295,7 @@ p  { color: var(--color-text-light); }
   justify-content: center;
   text-align: center;
   color: #fff;
-  background: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=75') center/cover no-repeat;
+  background: url('../../../images/unsplash-1566073771259-6a8506099945-1600.webp') center/cover no-repeat;
   isolation: isolate;
 }
 

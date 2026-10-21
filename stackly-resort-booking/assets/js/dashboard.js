@@ -1,5 +1,5 @@
-/* ============================================================
-   Stackly — dashboard.js
+﻿/* ============================================================
+   Stackly â€” dashboard.js
    Auth guard, user greeting, booking management, favorites,
    reservations form, reviews, profile, counts, sidebar.
    ============================================================ */
@@ -48,11 +48,11 @@ const StacklyDashboard = (() => {
     if (sidebar) {
       sidebar.innerHTML = `
         <div class="sidebar-brand">
-          <a href="../index.html" class="dashboard-brand-link" aria-label="Stackly home"><img class="dashboard-brand-logo" src="../../images/Stackly_logo_clean.png" alt="Stackly"></a>
+          <a href="../index.html" class="dashboard-brand-link" aria-label="Stackly home"><img class="dashboard-brand-logo" src="../../images/Stackly_logo_clean.webp" alt="Stackly"></a>
           <button class="sidebar-close" id="sidebar-close" type="button" aria-label="Close dashboard menu"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="sidebar-user">
-          <div class="avatar"><img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=160&q=70" alt="User avatar" data-sidebar-avatar></div>
+          <div class="avatar"><img src="../../images/unsplash-1535713875002-d1d0cf377fde-160.webp" alt="User avatar" data-sidebar-avatar></div>
           <div style="min-width:0">
             <h4 data-user-name>Guest</h4>
             <p data-user-email>guest@example.com</p>
@@ -103,7 +103,7 @@ const StacklyDashboard = (() => {
     document.querySelectorAll('[data-user-name]').forEach(el => el.textContent = name);
     document.querySelectorAll('[data-user-email]').forEach(el => el.textContent = user.email);
     document.querySelectorAll('[data-sidebar-avatar]').forEach(img => {
-      img.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=160&q=70';
+      img.src = '../../images/unsplash-1535713875002-d1d0cf377fde-160.webp';
       img.alt = name;
     });
   }
@@ -207,7 +207,7 @@ const StacklyDashboard = (() => {
             <td data-label="Reference"><strong>${b.reference}</strong></td>
             <td data-label="Hotel">${b.hotelName}</td>
             <td data-label="Destination">${b.destination}</td>
-            <td>${b.checkIn} → ${b.checkOut}</td>
+            <td>${b.checkIn} â†’ ${b.checkOut}</td>
             <td data-label="Total">${B().formatMoney(b.total)}</td>
             <td data-label="Status"><span class="status status-${b.status}">${b.status}</span></td>`;
           tr.querySelectorAll('td')[3].dataset.label = 'Dates';
@@ -233,7 +233,7 @@ const StacklyDashboard = (() => {
           <div class="booking-info">
             <h4>${b.hotelName}</h4>
             <p class="loc"><i class="fa-solid fa-location-dot"></i> ${b.destination}</p>
-            <p class="dates">${b.checkIn} → ${b.checkOut} • ${b.guests} guests</p>
+            <p class="dates">${b.checkIn} â†’ ${b.checkOut} â€¢ ${b.guests} guests</p>
             <span class="status status-upcoming">Upcoming</span>
           </div>`;
         wrap.appendChild(card);
@@ -296,7 +296,7 @@ const StacklyDashboard = (() => {
             modal.querySelector('.bd-ref').textContent = b.reference;
             modal.querySelector('.bd-hotel').textContent = b.hotelName;
             modal.querySelector('.bd-dest').textContent = b.destination;
-            modal.querySelector('.bd-dates').textContent = b.checkIn + ' → ' + b.checkOut;
+            modal.querySelector('.bd-dates').textContent = b.checkIn + ' â†’ ' + b.checkOut;
             modal.querySelector('.bd-guests').textContent = b.guests + ' guests, ' + b.rooms + ' room(s)';
             modal.querySelector('.bd-room').textContent = b.roomType;
             modal.querySelector('.bd-total').textContent = B().formatMoney(b.total);
@@ -478,7 +478,7 @@ const StacklyDashboard = (() => {
       roomSel.innerHTML = '<option value="">Select Room Type</option>';
       const rooms = hotel && hotel.rooms ? hotel.rooms : allRoomTypes;
       rooms.forEach(r => {
-          const o = new Option(`${r.type} — $${r.price}/night (up to ${r.capacity} guests)`, r.type);
+          const o = new Option(`${r.type} â€” $${r.price}/night (up to ${r.capacity} guests)`, r.type);
           roomSel.appendChild(o);
       });
       updateSummary();
@@ -515,7 +515,7 @@ const StacklyDashboard = (() => {
         <div class="summary-row"><span>Rate (${roomType})</span><strong>${B().formatMoney(pricing.nightly)} / night</strong></div>
         <div class="summary-row"><span>Rooms</span><strong>${pricing.roomCount}</strong></div>
         <div class="summary-row"><span>Subtotal</span><strong>${B().formatMoney(pricing.subtotal)}</strong></div>
-        ${pricing.discount > 0 ? `<div class="summary-row"><span>Discount (${pricing.discountPct}%)</span><strong>− ${B().formatMoney(pricing.discount)}</strong></div>` : ''}
+        ${pricing.discount > 0 ? `<div class="summary-row"><span>Discount (${pricing.discountPct}%)</span><strong>âˆ’ ${B().formatMoney(pricing.discount)}</strong></div>` : ''}
         <div class="summary-row"><span>Taxes & Fees (12%)</span><strong>${B().formatMoney(pricing.taxes)}</strong></div>
         <div class="summary-total"><span>Total</span><strong>${B().formatMoney(pricing.total)}</strong></div>
         <p style="color:#64748b;font-size:.85em;margin-top:.5rem">* This is a demo booking. Actual availability and payment will require backend integration.</p>`;
@@ -543,7 +543,7 @@ const StacklyDashboard = (() => {
       if (code) { const offer = StacklyData.offers.find(o => o.code === code); if (offer) discountPct = offer.discount; }
       const pricing = B().calculatePrice({ hotel, roomType, checkIn: ci, checkOut: co, guests, rooms, discountPct });
       if (!pricing) { V().toast('Invalid dates selected.', 'error'); return; }
-      V().setLoading(btn, true, 'Confirming booking…');
+      V().setLoading(btn, true, 'Confirming bookingâ€¦');
       setTimeout(() => {
         const bk = B().createBooking({
           hotel, checkIn: ci, checkOut: co, guests, rooms, roomType, pricing,
@@ -557,7 +557,7 @@ const StacklyDashboard = (() => {
         if (m) {
           m.querySelector('.sm-ref').textContent = bk.reference;
           m.querySelector('.sm-hotel').textContent = bk.hotelName;
-          m.querySelector('.sm-dates').textContent = bk.checkIn + ' → ' + bk.checkOut;
+          m.querySelector('.sm-dates').textContent = bk.checkIn + ' â†’ ' + bk.checkOut;
           m.querySelector('.sm-total').textContent = B().formatMoney(bk.total);
           V().openModal('success-modal');
         } else {
@@ -594,7 +594,7 @@ const StacklyDashboard = (() => {
     if (history) {
       history.innerHTML = paid.length ? paid.slice().sort((a, b) => new Date(b.createdAt || b.checkIn) - new Date(a.createdAt || a.checkIn)).slice(0, 5).map(b => `
         <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px;background:#f8fafc;border-radius:12px;flex-wrap:wrap">
-          <div><strong>${b.hotelName}</strong><p class="muted" style="margin:3px 0 0">${b.reference} · ${b.destination}</p></div>
+          <div><strong>${b.hotelName}</strong><p class="muted" style="margin:3px 0 0">${b.reference} Â· ${b.destination}</p></div>
           <div><strong>${B().formatMoney(b.total)}</strong></div>
         </div>`).join('') : '<p class="muted">No payment history yet. Complete a reservation to see payments here.</p>';
     }
@@ -608,10 +608,10 @@ const StacklyDashboard = (() => {
       tr.innerHTML = `
         <td>${b.reference}</td>
         <td>${b.hotelName}</td>
-        <td>${b.checkIn} → ${b.checkOut}</td>
+        <td>${b.checkIn} â†’ ${b.checkOut}</td>
         <td>${B().formatMoney(b.total)}</td>
         <td><span class="status status-completed">Paid (Demo)</span></td>
-        <td>${b.paymentMethod || 'Visa •••• 4242 (Demo)'}</td>`;
+        <td>${b.paymentMethod || 'Visa â€¢â€¢â€¢â€¢ 4242 (Demo)'}</td>`;
       tbody.appendChild(tr);
     });
     // spending summary
@@ -682,13 +682,13 @@ const StacklyDashboard = (() => {
     reviews.forEach(r => {
       const div = document.createElement('div');
       div.className = 'review-card';
-      const stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+      const stars = 'â˜…'.repeat(r.rating) + 'â˜†'.repeat(5 - r.rating);
       div.innerHTML = `
         <div class="review-head">
-          <div class="avatar sm"><img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=160&q=70" alt="${r.userName}"></div>
+          <div class="avatar sm"><img src="../../images/unsplash-1535713875002-d1d0cf377fde-160.webp" alt="${r.userName}"></div>
           <div>
             <h4>${r.userName}</h4>
-            <p class="muted">${new Date(r.createdAt).toLocaleDateString()} • ${r.hotelName}</p>
+            <p class="muted">${new Date(r.createdAt).toLocaleDateString()} â€¢ ${r.hotelName}</p>
           </div>
           <span class="review-rating">${stars}</span>
         </div>
@@ -820,3 +820,5 @@ document.addEventListener('DOMContentLoaded', () => {
     StacklyDashboard.initDashboard();
   }
 });
+
+

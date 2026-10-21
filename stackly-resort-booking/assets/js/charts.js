@@ -1,5 +1,5 @@
-/* ============================================================
-   Stackly — charts.js
+﻿/* ============================================================
+   Stackly â€” charts.js
    Chart.js helpers for dashboard visualisations.
    ============================================================ */
 
@@ -163,7 +163,7 @@ const StacklyCharts = (() => {
     new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['★ 1', '★ 2', '★ 3', '★ 4', '★ 5'],
+        labels: ['â˜… 1', 'â˜… 2', 'â˜… 3', 'â˜… 4', 'â˜… 5'],
         datasets: [{
           label: 'Reviews',
           data: counts,
@@ -193,3 +193,4 @@ const StacklyCharts = (() => {
     }
   };
 })();
+

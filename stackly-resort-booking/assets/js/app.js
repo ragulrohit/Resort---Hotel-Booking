@@ -1,5 +1,5 @@
-/* ============================================================
-   Stackly — app.js
+﻿/* ============================================================
+   Stackly â€” app.js
    Global UI: navbar, dropdowns, filters, accordions, search,
    hero search, date constraints, and site-wide interactions.
    ============================================================ */
@@ -15,7 +15,7 @@ const StacklyApp = (() => {
     container.innerHTML = `
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" aria-label="Stackly home"><img class="footer-brand-logo footer-brand-logo-light" src="../images/Stackly_logo_clean.png" alt="Stackly"></a>
+          <a href="index.html" aria-label="Stackly home"><img class="footer-brand-logo footer-brand-logo-light" src="../images/Stackly_logo_clean.webp" alt="Stackly"></a>
           <p>Stackly is a premium resort, hotel and villa booking platform making luxury stays accessible and unforgettable.</p>
           <div class="footer-social">
             <a href="404.html" class="icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -52,7 +52,7 @@ const StacklyApp = (() => {
           </div>
         </div>
       </div>
-      <div class="footer-bottom"><p>© 2026 Stackly. All rights reserved. Frontend demo — no real reservations or payments are processed.</p></div>`;
+      <div class="footer-bottom"><p>Â© 2026 Stackly. All rights reserved. Frontend demo â€” no real reservations or payments are processed.</p></div>`;
   }
 
   function bindNavbar() {
@@ -162,7 +162,7 @@ const StacklyApp = (() => {
         V().setFieldError(co, 'Check-out must be after check-in'); ok = false;
       }
       if (!ok) { V().toast('Please complete the search fields.', 'error'); return; }
-      V().toast('Searching for hotels in ' + dest.value + '…', 'info', 2600);
+      V().toast('Searching for hotels in ' + dest.value + 'â€¦', 'info', 2600);
       setTimeout(() => window.location.href = 'hotels.html?dest=' + encodeURIComponent(dest.value), 900);
     });
   }
@@ -227,7 +227,7 @@ const StacklyApp = (() => {
         modal.querySelector('.dm-title').textContent = hotel.name;
         const locEl = modal.querySelector('.dm-location');
         const locSpan = locEl.querySelector('span');
-        const locText = hotel.destination + ' • ' + hotel.stars + ' Star • ★ ' + hotel.rating;
+        const locText = hotel.destination + ' â€¢ ' + hotel.stars + ' Star â€¢ â˜… ' + hotel.rating;
         if (locSpan) locSpan.textContent = locText; else locEl.textContent = locText;
         modal.querySelector('.dm-img').src = hotel.image;
         modal.querySelector('.dm-img').alt = hotel.name;
@@ -237,7 +237,7 @@ const StacklyApp = (() => {
           const lbl = StacklyData.amenityLabels[a] || a;
           return `<span class="chip"><i class="fa-solid fa-check"></i> ${lbl}</span>`;
         }).join('');
-        modal.querySelector('.dm-rooms').innerHTML = (hotel.rooms || []).map(r => `<li><strong>${r.type}</strong> — $${r.price}/night (up to ${r.capacity} guests)</li>`).join('');
+        modal.querySelector('.dm-rooms').innerHTML = (hotel.rooms || []).map(r => `<li><strong>${r.type}</strong> â€” $${r.price}/night (up to ${r.capacity} guests)</li>`).join('');
         const book = modal.querySelector('.dm-book');
         if (book) book.href = 'hotels.html?hotel=' + encodeURIComponent(hotel.id) + '&dest=' + encodeURIComponent(hotel.destination);
         V().openModal('detail-modal');
@@ -317,7 +317,7 @@ const StacklyApp = (() => {
             <div class="hotel-head">
               <div>
                 <h3 class="hotel-title">${h.name}</h3>
-                <p class="hotel-loc"><i class="fa-solid fa-location-dot"></i> ${h.destination} • ${h.stars} ★</p>
+                <p class="hotel-loc"><i class="fa-solid fa-location-dot"></i> ${h.destination} â€¢ ${h.stars} â˜…</p>
               </div>
               <span class="hotel-price">$${h.price}<span class="night">/night</span></span>
             </div>
@@ -341,7 +341,7 @@ const StacklyApp = (() => {
           const list = StacklyStorage.toggleFavorite(u.email, id);
           const nowFav = list.includes(id);
           b.innerHTML = `<i class="fa${nowFav ? 's' : 'r'} fa-heart" style="color:${nowFav ? '#FC4E67' : '#64748b'}"></i>`;
-          V().toast(nowFav ? 'Added to favorites ♥' : 'Removed from favorites', 'success');
+          V().toast(nowFav ? 'Added to favorites â™¥' : 'Removed from favorites', 'success');
         });
       });
       bindViewDetails();
@@ -427,3 +427,5 @@ const StacklyApp = (() => {
 })();
 
 document.addEventListener('DOMContentLoaded', () => StacklyApp.initSite());
+
+

@@ -1,5 +1,5 @@
-/* ============================================================
-   Stackly — auth.js
+﻿/* ============================================================
+   Stackly â€” auth.js
    Login / signup / logout / session guards / Google demo.
    ============================================================ */
 
@@ -71,7 +71,7 @@ const StacklyAuth = (() => {
       return;
     }
 
-    V().setLoading(btn, true, 'Creating account…');
+    V().setLoading(btn, true, 'Creating accountâ€¦');
     setTimeout(() => {
       const res = StacklyStorage.addUser({ fullName, email, phone, role, password });
       V().setLoading(btn, false);
@@ -80,7 +80,7 @@ const StacklyAuth = (() => {
         V().toast('This email is already registered.', 'error');
         return;
       }
-      V().toast('Account created successfully! Redirecting to login…', 'success');
+      V().toast('Account created successfully! Redirecting to loginâ€¦', 'success');
       form.reset();
       setTimeout(() => { window.location.href = 'login.html?registered=1&email=' + encodeURIComponent(email); }, 1400);
     }, 900);
@@ -106,7 +106,7 @@ const StacklyAuth = (() => {
 
     if (!ok) { V().toast('Please fix the highlighted fields.', 'error'); return; }
 
-    V().setLoading(btn, true, 'Signing in…');
+    V().setLoading(btn, true, 'Signing inâ€¦');
     setTimeout(() => {
       let user = StacklyStorage.findUserByEmail(email);
       V().setLoading(btn, false);
@@ -215,3 +215,4 @@ const StacklyAuth = (() => {
 })();
 
 document.addEventListener('DOMContentLoaded', () => StacklyAuth.bindAuthPage());
+
